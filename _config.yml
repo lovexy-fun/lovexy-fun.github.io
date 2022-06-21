@@ -6,8 +6,7 @@ language: zh
 timezone:
 
 # URL
-url: http://localhost:4000/
-#url: https://blog.lovexy.fun/
+url: https://blog.lovexy.fun/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

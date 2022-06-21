@@ -8,7 +8,7 @@ tags:
 
 # 测试
 
-```shell
+```java
 @SpringBootApplication
 @EnableTransactionManagement
 public class Application {
