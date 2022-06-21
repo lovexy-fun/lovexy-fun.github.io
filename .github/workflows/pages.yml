@@ -10,35 +10,38 @@ on:
 jobs:
   pages:
     runs-on: ubuntu-latest
-    steps: 
+    permissions:
+      id-token: write
+      contents: write
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Use node.js 16.x
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      
+
       - name: Cache npm dependencies
         uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.OS }}-npm-cache
           restore-keys: ${{ runner.OS }}-npm-cache
-      
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Clean
         run: npm run clean
-      
+
       - name: Build
         run: npm run build
-      
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-        
+
