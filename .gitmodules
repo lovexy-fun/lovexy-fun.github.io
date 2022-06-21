@@ -1,0 +1,3 @@
+[submodule "themes\\aircloud"]
+	path = themes\\aircloud
+	url = git@github.com:lovexy-fun/hexo-theme-aircloud.git
