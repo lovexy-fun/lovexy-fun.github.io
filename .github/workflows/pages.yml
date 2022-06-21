@@ -1,0 +1,44 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Auto publish to pages
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Use node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: ${{ runner.OS }}-npm-cache
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Clean
+        run: npm run clean
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+        
