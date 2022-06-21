@@ -37,8 +37,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: cat
+      - name: ls1
         run: ls ./themes/aircloud
+      - name: ls2
+        run: ls ./
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
