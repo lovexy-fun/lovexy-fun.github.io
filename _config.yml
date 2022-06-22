@@ -2,7 +2,9 @@
 title: lovexy's blog
 subtitle: "lovexy's blog"
 author: lovexy
-language: zh
+language:
+  - zh
+  - en
 timezone:
 
 # URL
