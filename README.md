@@ -1,1 +1,1 @@
-# [blog.lovexy.fun](https://blog.lovexy.fun/)
+# [lovexy.fun](https://lovexy.fun/)
