@@ -13,7 +13,7 @@
 
     <title>
         
-        Ubuntu创建应用快捷方式 - lovexy&#39;s blog
+        捐赠 - lovexy&#39;s blog
         
     </title>
 
@@ -101,10 +101,6 @@
         </ul>
     </div>
     
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F"><span class="toc-text">Ubuntu创建应用快捷方式</span></a></li></ol>
-</div>
-    
 </div>
 
 
@@ -130,103 +126,15 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-
-
-<div class="post-container">
-    <div class="post-title">
-        Ubuntu创建应用快捷方式
+<div class="post-content no-indent">
+    
+    
+    <div id="comment-container">
     </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2018-11-01 23:24:00</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#瞎搞" title="瞎搞">瞎搞</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <h1 id="Ubuntu创建应用快捷方式"><a href="#Ubuntu创建应用快捷方式" class="headerlink" title="Ubuntu创建应用快捷方式"></a>Ubuntu创建应用快捷方式</h1><p>新建一个.desktop文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi eclipse.desktop</span><br></pre></td></tr></table></figure>
-
-<p>然后又进行编辑</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Desktop Entry]</span></span><br><span class="line"><span class="attr">Encoding</span>=UTF-<span class="number">8</span></span><br><span class="line"><span class="attr">Name</span>=eclipse</span><br><span class="line"><span class="attr">GenericName</span>=eclipse IDE</span><br><span class="line"><span class="attr">Comment</span>=java ide</span><br><span class="line"><span class="attr">Exec</span>=/etc/eclipse/eclipse</span><br><span class="line"><span class="attr">Icon</span>=/etc/eclipse/icon.xpm</span><br><span class="line"><span class="attr">Terminal</span>=<span class="literal">false</span></span><br><span class="line"><span class="attr">Type</span>=Application</span><br><span class="line"><span class="attr">Categories</span>=Application<span class="comment">;Development;</span></span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>关键字</th>
-<th>含义</th>
-<th>参数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[Desktop Entry]</td>
-<td>标识</td>
-<td></td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>编码</td>
-<td>UTF-8等编码格式</td>
-</tr>
-<tr>
-<td>GenericName</td>
-<td>描述</td>
-<td>一句描述</td>
-</tr>
-<tr>
-<td>Comment</td>
-<td>注释</td>
-<td>一句注释</td>
-</tr>
-<tr>
-<td>Exec</td>
-<td>可执行文件目录及文件名</td>
-<td>文件名及目录</td>
-</tr>
-<tr>
-<td>Icon</td>
-<td>图标目录及图标名</td>
-<td>文件名及目录</td>
-</tr>
-<tr>
-<td>Terminal</td>
-<td>是否启动终端</td>
-<td>true&#x2F;false</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>启动器类型</td>
-<td></td>
-</tr>
-<tr>
-<td>Categories</td>
-<td>应用类型</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>编写完后保存退出，然后执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x eclipse.desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果想让这个快捷方式在全部应用里能找到，就把这个文件拷贝到**&#x2F;usr&#x2F;share&#x2F;application&#x2F;**下</p>
-
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-        <div id="lv-container"></div>
-        <div class="giscus"></div>
+    <div id="disqus_thread"></div>
+    <div id="lv-container"></div>
+    <div class="giscus"></div>
+    <div id="lv-container">
     </div>
 </div>
 
@@ -284,7 +192,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = true
+    window.isPost = false
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
