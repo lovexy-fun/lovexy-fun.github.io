@@ -5,7 +5,11 @@ name: Auto publish to pages
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - "master"
+    paths:
+      - '**.md'
+      - 'action.deploy'
 
 jobs:
   pages:
