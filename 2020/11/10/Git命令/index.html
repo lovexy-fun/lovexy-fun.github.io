@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="lovexy&#39;s blog">
+    <meta property="og:type" content="website">
+    <meta name="description" content="lovexy&#39;s blog">
+    <meta name="keyword"  content="lovexy,lovexy-fun">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Git命令集 - lovexy&#39;s blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212792993036515" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> lovexy&#39;s blog </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>lovexy</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%91%BD%E4%BB%A4%E9%9B%86"><span class="toc-text">Git命令集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%92%8C%E6%8F%90%E4%BA%A4"><span class="toc-text">修改和提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%97"><span class="toc-text">查看提交日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%93%8D%E4%BD%9C"><span class="toc-text">撤销操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="toc-text">远程操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E4%B8%8E%E6%A0%87%E7%AD%BE"><span class="toc-text">分支与标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E4%B8%8E%E5%8F%98%E5%9F%BA"><span class="toc-text">合并与变基</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> lovexy&#39;s blog </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Git命令集
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-11-10 15:53:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#git" title="git">git</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Git命令集"><a href="#Git命令集" class="headerlink" title="Git命令集"></a>Git命令集</h1><blockquote>
+<p>来自于阿里云定制鼠标垫，转为电子版方便以后参考</p>
+</blockquote>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git config -l</td>
+<td>查看当前生效的配置信息</td>
+</tr>
+<tr>
+<td>git config [–global | –system] -e</td>
+<td>编辑配置文件，–global：全局级，–system：系统级，默认本地级</td>
+</tr>
+<tr>
+<td>git config [–global | –system] [–add] &lt;name&gt; &lt;value&gt;</td>
+<td>设置单值或多值（–add）配置项</td>
+</tr>
+<tr>
+<td>git config [–global | –system] –unset &lt;name&gt;</td>
+<td>删除配置项</td>
+</tr>
+<tr>
+<td>git config [–global | –system] [–get-all] &lt;name&gt;</td>
+<td>查询单值或多值（–get-all）配置项</td>
+</tr>
+</tbody></table>
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git init [–bare] &lt;仓库路径&gt;</td>
+<td>创建一个新仓库</td>
+</tr>
+<tr>
+<td>git clone &lt;远程仓库网址&gt; [本地目录]</td>
+<td>克隆远程仓库到本地</td>
+</tr>
+</tbody></table>
+<h2 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git status</td>
+<td>查看本地仓库的状态</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>查看本地文件改动</td>
+</tr>
+<tr>
+<td>git diff –cached</td>
+<td>查看暂存区文件改动</td>
+</tr>
+<tr>
+<td>git diff &lt;版本&gt;</td>
+<td>查看本地文件和指定版本之间的差异</td>
+</tr>
+<tr>
+<td>git add &lt;路径&gt;</td>
+<td>把本地文件的改动添加到暂存区</td>
+</tr>
+<tr>
+<td>git add -p</td>
+<td>选择本地部分修改加入暂存区</td>
+</tr>
+<tr>
+<td>git add -u</td>
+<td>仅添加已被跟踪文件的本地修改</td>
+</tr>
+<tr>
+<td>git add -A</td>
+<td>添加本地所有的改动到暂存区</td>
+</tr>
+<tr>
+<td>git mv &lt;源文件&gt; &lt;目标文件&gt;</td>
+<td>重命名指定的文件或者文件夹</td>
+</tr>
+<tr>
+<td>git rm &lt;文件&gt;</td>
+<td>删除指定文件</td>
+</tr>
+<tr>
+<td>git rm –cached &lt;文件&gt;</td>
+<td>只删除暂存区文件，不删除本地文件</td>
+</tr>
+<tr>
+<td>git clean -i</td>
+<td>清理本地文件（-i进入交互式界面）</td>
+</tr>
+<tr>
+<td>git commit -m &lt;描述信息&gt; [-m &lt;描述信息&gt;…]</td>
+<td>提交并使用指定描述作为提交说明</td>
+</tr>
+<tr>
+<td>git commit –amend</td>
+<td>修补当前提交</td>
+</tr>
+<tr>
+<td>git commit –fixup &lt;提交&gt;</td>
+<td>修补历史提交</td>
+</tr>
+</tbody></table>
+<h2 id="查看提交日志"><a href="#查看提交日志" class="headerlink" title="查看提交日志"></a>查看提交日志</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git log</td>
+<td>打印所有的提交记录</td>
+</tr>
+<tr>
+<td>git log –oneline &lt;版本1&gt;..&lt;版本2&gt;</td>
+<td>打印&lt;版本1&gt;到&lt;版本2&gt;新增提交，每个提交显示一行</td>
+</tr>
+<tr>
+<td>git log -p [&lt;路径&gt;]</td>
+<td>显示日志及详细的提交补丁</td>
+</tr>
+<tr>
+<td>git blame [-Lm,+n][&lt;版本&gt;] –&lt;路径&gt;</td>
+<td>对文件逐行显示最近一次的修改信息</td>
+</tr>
+</tbody></table>
+<h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git reset</td>
+<td>撤销暂存区改动</td>
+</tr>
+<tr>
+<td>git reset –soft &lt;版本&gt;</td>
+<td>软重置：仅修改HEAD指向，暂存区和本地文件均不修改</td>
+</tr>
+<tr>
+<td>git reset [–mixed] &lt;版本&gt;</td>
+<td>混合重置：本地文件不修改，但HEAD指向的暂存区都修改</td>
+</tr>
+<tr>
+<td>git reset –hard &lt;版本&gt;</td>
+<td>硬重置：HEAD指向、暂存区、本地文件全都修改</td>
+</tr>
+<tr>
+<td>git revert [-m 1] &lt;版本&gt;</td>
+<td>生成一个新的提交来撤销某次历史提交（-m参数用于撤销合并提交）</td>
+</tr>
+</tbody></table>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git remote add &lt;别名&gt; &lt;URL&gt;</td>
+<td>添加一个远程仓库</td>
+</tr>
+<tr>
+<td>git remote -v</td>
+<td>查看远程仓库的详细信息</td>
+</tr>
+<tr>
+<td>git remote remove &lt;别名&gt;</td>
+<td>删除指定名称的远程仓库</td>
+</tr>
+<tr>
+<td>git remote set-url &lt;别名&gt;  &lt;新URL&gt;</td>
+<td>修改远程仓库的URL地址</td>
+</tr>
+<tr>
+<td>git fetch [–prune] &lt;远程仓库别名&gt;</td>
+<td>获取远程仓库引用，使用–prune会清理本地缓存的已由远程删除的引用</td>
+</tr>
+<tr>
+<td>git fetch &lt;远程仓库别名&gt; &lt;分支名&gt;</td>
+<td>将远程仓库指定分支的最新版本取回本地</td>
+</tr>
+<tr>
+<td>git pull &lt;远程仓库别名&gt; &lt;分支名&gt;</td>
+<td>拉取远程仓库某个分支的更新，再与本地的指定分支合并</td>
+</tr>
+<tr>
+<td>git push &lt;远程仓库别名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</td>
+<td>把本地仓库的分支推送到远程仓库的指定分支</td>
+</tr>
+<tr>
+<td>git push &lt;远程仓库别名&gt; –delete &lt;远程分支名&gt;</td>
+<td>删除指定的远程仓库的分支</td>
+</tr>
+<tr>
+<td>git push &lt;远程仓库的别名&gt; &lt;标签名称&gt;</td>
+<td>将指定的标签提交到远程仓库</td>
+</tr>
+<tr>
+<td>git push &lt;远程仓库的别名&gt; –tags</td>
+<td>将本地所有的标签全部都提交到远程仓库</td>
+</tr>
+</tbody></table>
+<h2 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git branch [-a]</td>
+<td>查看本地分支</td>
+</tr>
+<tr>
+<td>git branch &lt;新分支&gt; [&lt;基线&gt;]</td>
+<td>从基线创建新分支</td>
+</tr>
+<tr>
+<td>git branch -d &lt;本地分支名&gt;</td>
+<td>删除指定分支</td>
+</tr>
+<tr>
+<td>git checkout &lt;本地分支名&gt;</td>
+<td>切换到指定分支</td>
+</tr>
+<tr>
+<td>git checkout -b &lt;新分支&gt; &lt;基线&gt;</td>
+<td>创建并切换到新分支</td>
+</tr>
+<tr>
+<td>git checkout &lt;版本&gt; –&lt;文件&gt;</td>
+<td>用指定版本的文件覆盖本地文件</td>
+</tr>
+<tr>
+<td>git tag</td>
+<td>查看本地所有标签</td>
+</tr>
+<tr>
+<td>git tag -m &lt;标签描述信息&gt; &lt;标签名称&gt; [&lt;版本&gt;]</td>
+<td>基于指定提交（未指定为最新提交）创建新标签</td>
+</tr>
+<tr>
+<td>git tag -s -u &lt;key-id&gt; -m &lt;标签描述信息&gt; &lt;标签名称&gt; [&lt;版本&gt;]</td>
+<td>创建带有PGP签名的标签</td>
+</tr>
+<tr>
+<td>git tag -d &lt;标签名称&gt;</td>
+<td>删除指定标签</td>
+</tr>
+</tbody></table>
+<h2 id="合并与变基"><a href="#合并与变基" class="headerlink" title="合并与变基"></a>合并与变基</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git merge &lt;分支名称&gt;</td>
+<td>把指定的分支合并到当前所在的分支下</td>
+</tr>
+<tr>
+<td>git merge (–continue|–abort|–quit)</td>
+<td>合并冲突</td>
+</tr>
+<tr>
+<td>git rebase &lt;分支名称&gt;</td>
+<td>变基：把当前分支改动在新的基线上重放</td>
+</tr>
+<tr>
+<td>git rebase -i –autosquash &lt;分支名称&gt;</td>
+<td>交互式变基，通常用于整理提交</td>
+</tr>
+<tr>
+<td>git rebase (–continue|–skip|–abort|–quit|–edit -todo)</td>
+<td>变基暂停后，选择继续、跳过、终止或编辑任务</td>
+</tr>
+</tbody></table>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/lovexy-fun">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鲁ICP备2020039203号</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>

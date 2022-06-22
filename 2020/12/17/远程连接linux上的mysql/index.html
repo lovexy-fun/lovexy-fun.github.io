@@ -13,7 +13,7 @@
 
     <title>
         
-        lovexy&#39;s blog
+        远程连接linux上的mysql - lovexy&#39;s blog
         
     </title>
 
@@ -66,7 +66,7 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
@@ -101,6 +101,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -128,35 +132,46 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        远程连接linux上的mysql
+    </div>
 
-<div class="archives-container">
-
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-                    <span class="tag-text">2022</span>
-                </span>
-    <ul>
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-12-17 11:50:00</span></span>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>06-21</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2022/06/21/test/">
-                        <span>
-                            测试
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
+        <span class="attr">标签：/
         
+        <a class="tag" href="/tags/#踩坑" title="踩坑">踩坑</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>linux服务器安装mysql之后需要进行一些配置操作才能够远程连接</p>
+<ol>
+<li><p>修改<strong>host</strong>、<strong>password</strong>和<strong>plugin</strong>字段</p>
+<p>mysql5.7的user表是没有password的，变成了authentication_string字段。</p>
+<p>plugin需要改为mysql_native_password才能使用密码进行连接。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> host<span class="operator">=</span><span class="string">&#x27;%&#x27;</span>,authentication_string<span class="operator">=</span>password(<span class="string">&#x27;要修改的密码&#x27;</span>),plugin<span class="operator">=</span><span class="string">&#x27;mysql_native_password&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件中的<strong>bind-address</strong></p>
+<p>将配置文件中的<code>bind-address=127.0.0.1</code>改为<code>bind-address=0.0.0.0</code></p>
+</li>
+</ol>
 
-    </ul>
-</div>
-
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
 </div>
 
     </div>
@@ -213,7 +228,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 

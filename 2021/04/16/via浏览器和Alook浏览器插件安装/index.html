@@ -13,7 +13,7 @@
 
     <title>
         
-        lovexy&#39;s blog
+        via浏览器和Alook浏览器插件安装 - lovexy&#39;s blog
         
     </title>
 
@@ -66,7 +66,7 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
@@ -101,6 +101,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -128,35 +132,53 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        via浏览器和Alook浏览器插件安装
+    </div>
 
-<div class="archives-container">
-
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-                    <span class="tag-text">2022</span>
-                </span>
-    <ul>
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2021-04-16 17:41:00</span></span>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>06-21</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2022/06/21/test/">
-                        <span>
-                            测试
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
+        <span class="attr">标签：/
         
+        <a class="tag" href="/tags/#瞎搞" title="瞎搞">瞎搞</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>via和Alook是Android和IOS上可以支持JS插件的浏览器，一些常用的插件可以在via-app.cn上找到。但总会有人会思考点击安装按钮的是怎样将JS脚本代码安装到浏览器的。</p>
+<p>经过对页面代码的分析得到一下结论：</p>
+<p>浏览器向<code>window</code>上添加了一个<code>via</code>对象，安装某个脚本只需要调用方法即可，具体调用方法为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">via</span>.<span class="title function_">addon</span>(<span class="title class_">Base64</span>字符串)</span><br></pre></td></tr></table></figure>
 
-    </ul>
-</div>
+<p><strong>Base64字符串</strong>是由固定格式的json字符串转码而来的，json格式如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;作者，字符串格式，ASCII编码，例如：\u8fd9\u662f\u4e2a\u4f8b\u5b50&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;code&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JS脚本Base64编码后的字符串&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;插件名称，字符串格式，同样是ASCII编码&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;匹配的网址，一般使用*&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
+<p>说明：</p>
+<ol>
+<li>对于via浏览器来说author和name是非必须项，id、code和url为必须项。</li>
+<li>对于Alook浏览器来说author、name和id是非必须，code和url都存在时插件识别为被动插件，只有code时识别为主动插件。</li>
+<li>目前没有准确的文档，或许会存在一些上述格式中不存在的字段。</li>
+</ol>
+<p>其他补充：</p>
+<ol>
+<li>alook浏览器必须使用带填充base64字符串，例如：<code>alert()</code>不带填充编码为<code>YWxlcnQoKQ</code>带填充编码为<code>YWxlcnQoKQ==</code>。</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
 </div>
 
     </div>
@@ -213,7 +235,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 

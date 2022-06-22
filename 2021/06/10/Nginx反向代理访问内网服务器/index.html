@@ -13,7 +13,7 @@
 
     <title>
         
-        测试 - lovexy&#39;s blog
+        Nginx反向代理访问内网服务器 - lovexy&#39;s blog
         
     </title>
 
@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">Nginx反向代理访问内网服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">Nginx反向代理配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E9%9B%85%E7%9A%84%E8%BF%9B%E8%A1%8CNginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">优雅的进行Nginx反向代理配置</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -134,18 +134,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        测试
+        Nginx反向代理访问内网服务器
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2022-06-21 21:49:31</span></span>
+        <span class="attr">发布于：<span>2021-06-10 00:28:00</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#test" title="test">test</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#测试" title="测试">测试</a>
+        <a class="tag" href="/tags/#瞎搞" title="瞎搞">瞎搞</a>
         <span>/</span>
         
         
@@ -155,7 +152,12 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Nginx反向代理访问内网服务器"><a href="#Nginx反向代理访问内网服务器" class="headerlink" title="Nginx反向代理访问内网服务器"></a>Nginx反向代理访问内网服务器</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>​    公司给配的台式机太垃圾了，不能访问外部网络就算了，还没有maven私服。近期项目不光得使用maven还得使用内网中的数据库之类，台式机太卡只能用自己的笔记本用爱发电。公司内网需要通过<strong>ASM入网小助手</strong>进行认证，一旦安装了<strong>ASM入网小助手</strong>笔记本就无法使用U盘了，并且还会乱改你的注册表。不想装小助手还想连接内网的数据库服务，那要怎么办呢？于是想到使用Nginx进行反向代理。</p>
+<h2 id="Nginx反向代理配置"><a href="#Nginx反向代理配置" class="headerlink" title="Nginx反向代理配置"></a>Nginx反向代理配置</h2><p>先上个配置</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#根节点下</span></span><br><span class="line"><span class="section">stream</span> &#123;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">12345</span>; <span class="comment">#监听本机的端口</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> <span class="number">192.168.123.123:3306</span>; <span class="comment">#代理内网的mysql</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用上面配置启动nginx后，在本机就可以使用<code>127.0.0.1:12345</code>来连接mysql了。<br>按照这种方法只要自己的笔记本接入内网，再在内网台式机上进行如此配置nginx，使用<code>[内网台式机IP]:12345</code>就可以连接内网的mysql了。</p>
+<h2 id="优雅的进行Nginx反向代理配置"><a href="#优雅的进行Nginx反向代理配置" class="headerlink" title="优雅的进行Nginx反向代理配置"></a>优雅的进行Nginx反向代理配置</h2><p>​    直接改<code>nginx.conf</code>似乎不是很友好，配置多了也记不清哪个端口代理哪个服务了，同事要用的话还需要说明代理关系。于是乎就有了写一个nginx配置管理系统的想法，主要需求为：代理关系说明、代理配置、nginx控制。原本想使用Qt编写GUI界面程序，但是发现解析Nginx配置文件有点难受，于是使用SpringBoot+Layui+MybatisPlus+Sqlite做了一套web管理系统。设计思路是每次加载<code>nginx.conf</code>前根据数据库数据生成配置文件，由后端提供控制nginx停止与启动的接口。详细代码和release请参见<a target="_blank" rel="noopener" href="https://github.com/lovexy-fun/reverse-proxy">GitHub</a>。</p>
 
         
         <br />
