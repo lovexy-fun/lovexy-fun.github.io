@@ -6,7 +6,8 @@ language: zh
 timezone:
 
 # URL
-url: https://lovexy.fun/
+#url: https://lovexy.fun/
+url: https://localhost:4000/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -34,6 +35,9 @@ friends: [
         href: "https://beian.miit.gov.cn/"
     }
 ]
+
+# Ad
+adScript: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212792993036515" crossorigin="anonymous"></script>'
 
 search:
   path: search.json
