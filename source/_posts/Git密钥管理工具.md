@@ -110,6 +110,6 @@ skm sel
 #然后按↑/↓选择要删除的私钥
 ```
 
-##Bug反馈&意见建议
+## Bug反馈&意见建议
 
 [Issues](https://github.com/lovexy-fun/skm/issues)
