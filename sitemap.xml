@@ -11,24 +11,6 @@
   </url>
   
   <url>
-    <loc>https://lovexy.fun/collect/index.html</loc>
-    
-    <lastmod>2022-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovexy.fun/donate/index.html</loc>
-    
-    <lastmod>2022-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lovexy.fun/2021/12/28/ASM%E5%B0%8F%E5%8A%A9%E6%89%8B%E5%8D%B8%E8%BD%BD/</loc>
     
     <lastmod>2022-06-30</lastmod>
@@ -119,7 +101,34 @@
   </url>
   
   <url>
+    <loc>https://lovexy.fun/google3c3b7b7d36c2b2d6.html</loc>
+    
+    <lastmod>2022-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lovexy.fun/about/index.html</loc>
+    
+    <lastmod>2022-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovexy.fun/collect/index.html</loc>
+    
+    <lastmod>2022-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovexy.fun/donate/index.html</loc>
     
     <lastmod>2022-06-30</lastmod>
     
