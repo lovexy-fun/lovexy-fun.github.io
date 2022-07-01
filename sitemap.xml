@@ -7,9 +7,9 @@
   <url>
     <loc>{{ post.permalink | uriencode }}</loc>
     {% if post.updated %}
-    <lastmod>{{ post.updated | formatDate }}T00:00:00</lastmod>
+    <lastmod>{{ post.updated | formatDate }}T00:00:00+00:00</lastmod>
     {% elif post.date %}
-    <lastmod>{{ post.date | formatDate }}T00:00:00</lastmod>
+    <lastmod>{{ post.date | formatDate }}T00:00:00+00:00</lastmod>
     {% endif %}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -18,7 +18,7 @@
 
   <url>
     <loc>{{ config.url | uriencode }}</loc>
-    <lastmod>{{ sNow | formatDate }}T00:00:00</lastmod>
+    <lastmod>{{ sNow | formatDate }}T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,7 +26,7 @@
   {% for tag in tags %}
   <url>
     <loc>{{ tag.permalink | uriencode }}</loc>
-    <lastmod>{{ sNow | formatDate }}T00:00:00</lastmod>
+    <lastmod>{{ sNow | formatDate }}T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -35,7 +35,7 @@
   {% for cat in categories %}
   <url>
     <loc>{{ cat.permalink | uriencode }}</loc>
-    <lastmod>{{ sNow | formatDate }}T00:00:00</lastmod>
+    <lastmod>{{ sNow | formatDate }}T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
