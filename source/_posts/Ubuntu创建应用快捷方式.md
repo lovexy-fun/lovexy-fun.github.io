@@ -1,6 +1,7 @@
 ---
 title: Ubuntu创建应用快捷方式
 date: 2018-11-01 23:24:00
+updated: 2018-11-01 23:24:00
 tags:
   - linux
   - 瞎搞

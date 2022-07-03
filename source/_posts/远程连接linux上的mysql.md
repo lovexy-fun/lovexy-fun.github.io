@@ -1,6 +1,7 @@
 ---
 title: 远程连接linux上的mysql
 date: 2020-12-17 11:50:00
+updated: 2020-12-17 11:50:00
 tags:
   - 踩坑
 ---
