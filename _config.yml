@@ -94,7 +94,7 @@ theme: aircloud
 deploy:
   type: git
   repo: git@github.com:lovexy-fun/lovexy-fun.github.io.git
-  branch: master
+  branch: gh-pages
 
 sitemap:
   path:
