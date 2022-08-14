@@ -13,7 +13,7 @@
 
     <title>
         
-        About - lovexy&#39;s blog
+        更优雅地使用linux做开发 - lovexy&#39;s blog
         
     </title>
 
@@ -84,7 +84,7 @@
                     <span>收藏</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>关于</span>
@@ -100,6 +100,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-text">更优雅地使用软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%88%B0%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E7%BB%84"><span class="toc-text">添加用户到软件的权限组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Desktop%E7%89%88%E6%9C%AC%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87"><span class="toc-text">Desktop版本系统创建桌面图标</span></a></li></ol></li></ol>
+</div>
     
 </div>
 
@@ -126,17 +130,44 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-content no-indent">
-    <p>菜狗码农一个，没事就瞎写点东西。</p>
-<p>Email: <a href="mailto:&#108;&#x6f;&#118;&#101;&#x78;&#121;&#x66;&#117;&#110;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#108;&#x6f;&#118;&#101;&#x78;&#121;&#x66;&#117;&#110;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;</a></p>
 
-    
-    <div id="comment-container">
+
+<div class="post-container">
+    <div class="post-title">
+        更优雅地使用linux做开发
     </div>
-    <div id="disqus_thread"></div>
-    <div id="lv-container"></div>
-    <div class="giscus"></div>
-    <div id="lv-container">
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2022-08-14 23:40:14</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <blockquote>
+<p>系统版本：Ubuntu 20.04 LTS &#x2F; WSL2 Ubuntu 20.04 LTS<br>内容不定时更新</p>
+</blockquote>
+<h2 id="更优雅地使用软件"><a href="#更优雅地使用软件" class="headerlink" title="更优雅地使用软件"></a>更优雅地使用软件</h2><h3 id="添加用户到软件的权限组"><a href="#添加用户到软件的权限组" class="headerlink" title="添加用户到软件的权限组"></a>添加用户到软件的权限组</h3><p>有些软件安装完成后会创建一个自己的用户组，有时如果不切换到root去使用软件会报错，这时把自己当前用户添加到软件的用户组就是解决权限问题。比如docker会创建一个docker用户组。</p>
+<p>添加用户到组示例如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/group #查看所有的用户group</span><br><span class="line">usermod -a -G OutlawManiac ZhangSan #添加用户ZhangSan到OutlawManiac用户组</span><br></pre></td></tr></table></figure>
+
+<h3 id="Desktop版本系统创建桌面图标"><a href="#Desktop版本系统创建桌面图标" class="headerlink" title="Desktop版本系统创建桌面图标"></a>Desktop版本系统创建桌面图标</h3><p>参考：<a href="https://lovexy.fun/2018/11/01/Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/">Ubuntu创建应用快捷方式</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
     </div>
 </div>
 
@@ -194,7 +225,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
