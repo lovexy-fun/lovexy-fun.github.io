@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">Nginx反向代理访问内网服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">Nginx反向代理配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E9%9B%85%E7%9A%84%E8%BF%9B%E8%A1%8CNginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">优雅的进行Nginx反向代理配置</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">Nginx反向代理访问内网服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">Nginx反向代理配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E9%9B%85%E7%9A%84%E8%BF%9B%E8%A1%8CNginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">优雅的进行Nginx反向代理配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reverse-proxy%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%EF%BC%88v1-0-1%EF%BC%89"><span class="toc-text">reverse-proxy使用说明（v1.0.1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="toc-text">文件说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%89%8D%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E7%9A%84"><span class="toc-text">启动前需要修改的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2"><span class="toc-text">停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%90%86"><span class="toc-text">配置一个代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span class="toc-text">问题反馈</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -152,12 +152,52 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h1 id="Nginx反向代理访问内网服务器"><a href="#Nginx反向代理访问内网服务器" class="headerlink" title="Nginx反向代理访问内网服务器"></a>Nginx反向代理访问内网服务器</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>​    公司给配的台式机太垃圾了，不能访问外部网络就算了，还没有maven私服。近期项目不光得使用maven还得使用内网中的数据库之类，台式机太卡只能用自己的笔记本用爱发电。公司内网需要通过<strong>ASM入网小助手</strong>进行认证，一旦安装了<strong>ASM入网小助手</strong>笔记本就无法使用U盘了，并且还会乱改你的注册表。不想装小助手还想连接内网的数据库服务，那要怎么办呢？于是想到使用Nginx进行反向代理。</p>
+        <h1 id="Nginx反向代理访问内网服务器"><a href="#Nginx反向代理访问内网服务器" class="headerlink" title="Nginx反向代理访问内网服务器"></a>Nginx反向代理访问内网服务器</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>公司给配的台式机太垃圾了，不能访问外部网络就算了，还没有maven私服。近期项目不光得使用maven还得使用内网中的数据库之类，台式机太卡只能用自己的笔记本用爱发电。公司内网需要通过<strong>ASM入网小助手</strong>进行认证，一旦安装了<strong>ASM入网小助手</strong>笔记本就无法使用U盘了，并且还会乱改你的注册表。不想装小助手还想连接内网的数据库服务，那要怎么办呢？于是想到使用Nginx进行反向代理。</p>
 <h2 id="Nginx反向代理配置"><a href="#Nginx反向代理配置" class="headerlink" title="Nginx反向代理配置"></a>Nginx反向代理配置</h2><p>先上个配置</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#根节点下</span></span><br><span class="line"><span class="section">stream</span> &#123;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">12345</span>; <span class="comment">#监听本机的端口</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> <span class="number">192.168.123.123:3306</span>; <span class="comment">#代理内网的mysql</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用上面配置启动nginx后，在本机就可以使用<code>127.0.0.1:12345</code>来连接mysql了。<br>按照这种方法只要自己的笔记本接入内网，再在内网台式机上进行如此配置nginx，使用<code>[内网台式机IP]:12345</code>就可以连接内网的mysql了。</p>
-<h2 id="优雅的进行Nginx反向代理配置"><a href="#优雅的进行Nginx反向代理配置" class="headerlink" title="优雅的进行Nginx反向代理配置"></a>优雅的进行Nginx反向代理配置</h2><p>​    直接改<code>nginx.conf</code>似乎不是很友好，配置多了也记不清哪个端口代理哪个服务了，同事要用的话还需要说明代理关系。于是乎就有了写一个nginx配置管理系统的想法，主要需求为：代理关系说明、代理配置、nginx控制。原本想使用Qt编写GUI界面程序，但是发现解析Nginx配置文件有点难受，于是使用SpringBoot+Layui+MybatisPlus+Sqlite做了一套web管理系统。设计思路是每次加载<code>nginx.conf</code>前根据数据库数据生成配置文件，由后端提供控制nginx停止与启动的接口。详细代码和release请参见<a target="_blank" rel="noopener" href="https://github.com/lovexy-fun/reverse-proxy">GitHub</a>。</p>
+<h2 id="优雅的进行Nginx反向代理配置"><a href="#优雅的进行Nginx反向代理配置" class="headerlink" title="优雅的进行Nginx反向代理配置"></a>优雅的进行Nginx反向代理配置</h2><p>直接改<code>nginx.conf</code>似乎不是很友好，配置多了也记不清哪个端口代理哪个服务了，同事要用的话还需要说明代理关系。于是乎就有了写一个nginx配置管理系统的想法，主要需求为：代理关系说明、代理配置、nginx控制。原本想使用Qt编写GUI界面程序，但是发现解析Nginx配置文件有点难受，于是使用SpringBoot+Layui+MybatisPlus+Sqlite做了一套web管理系统。设计思路是每次加载<code>nginx.conf</code>前根据数据库数据生成配置文件，由后端提供控制nginx停止与启动的接口。详细代码和release请参见<a target="_blank" rel="noopener" href="https://github.com/lovexy-fun/reverse-proxy">GitHub</a>。</p>
+<h2 id="reverse-proxy使用说明（v1-0-1）"><a href="#reverse-proxy使用说明（v1-0-1）" class="headerlink" title="reverse-proxy使用说明（v1.0.1）"></a>reverse-proxy使用说明（v1.0.1）</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/lovexy-fun/reverse-proxy/releases">https://github.com/lovexy-fun/reverse-proxy/releases</a></p>
+<p>请选择新版本下载使用，目前仅支持windows系统，其他系统请自行修改源码。</p>
+<p>下载zip后请放到非管理员权限可访问的目录下使用（非系统盘或当前用户目录）</p>
+<h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nginx nginx程序目录</span><br><span class="line">application.yml 应用配置文件</span><br><span class="line">reverse-proxy.db 数据库文件</span><br><span class="line">reverse-proxy.jar java主程序</span><br><span class="line">start.bat 启动脚本</span><br><span class="line">stop.bat 停止脚本</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动前需要修改的"><a href="#启动前需要修改的" class="headerlink" title="启动前需要修改的"></a>启动前需要修改的</h3><p>用文本编辑器（不要用系统自带的记事本）打开<code>application.yml</code></p>
+<p>修改默认管理账号和密码（默认都是admin）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">admin:</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">自定义的账号</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">自定义的密码</span></span><br></pre></td></tr></table></figure>
+
+<p>修改程序的启动端口（默认8999）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8999</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>双击<code>start.bat</code>启动程序</p>
+<p>启动后访问 <a target="_blank" rel="noopener" href="http://localhost:8999/">http://localhost:8999</a> ，点击<code>管理</code>跳转到管理页面，输入配置的账号和密码进行登录。</p>
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><p>双击<code>stop.bat</code>停止程序</p>
+<h3 id="配置一个代理"><a href="#配置一个代理" class="headerlink" title="配置一个代理"></a>配置一个代理</h3><p>点击左上角的➕图标，会弹出新增代理的弹出框，如图：</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/1.png"></p>
+<p>上图所配置的是mysql的访问代理</p>
+<p>原来用过<code>jdbc:mysql://192.168.2.222:3306/</code>才能连接的数据库现在可以用<code>jdbc:mysql://localhost:7777/</code>连接了。</p>
+<p>当然实际使用中不会使用localhost去访问，而是使用你reverse-proxy所在的机器ip。</p>
+<p>点击确定后页面上会列出这条代理，如图：</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
+<p>在上图中可以看到这一条数据有启用、管理、修改和删除四项功能，修改和删除没有什么可解释的。</p>
+<p>点击启用开关后开关会变为灰色，表示这条配置不会生效。</p>
+<p>管理按钮点击后会弹出允许使用代理的ip配置弹框，如图所示：</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/3.png"></p>
+<p>点击➕可以输入ip（只能是ip，不能填写域名）</p>
+<p>ip的填写格式有两种：</p>
+<p>第一种是192.168.2.333这样的单个ip</p>
+<p>第二种是192.168.2.0&#x2F;24这样的网段，表示任意192.168.2.*的ip都允许使用代理。</p>
+<p>保存后关闭窗口即可</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/2.png"></p>
+<p>接下来我们需要在主页面上点击启动Nginx按钮，等待nginx启动完成我们的配置就生效了。</p>
+<p>第一次启动会弹出防火墙确认，如下图所示，点击允许即可。</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/4.png"></p>
+<p>页面刷新后启动nginx按钮消失，会出现应用配置和停止nginx按钮，当修改了代理配置后需要点击应用配置按钮使配置生效。</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/5.png"></p>
+<p>点击<strong>返回查看页面</strong>可以预览代理配置的所有信息（如下图所示），此页面访问无需登录。</p>
+<p><img src="/img/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8/6.png"></p>
+<h2 id="问题反馈"><a href="#问题反馈" class="headerlink" title="问题反馈"></a>问题反馈</h2><p><a target="_blank" rel="noopener" href="https://github.com/lovexy-fun/reverse-proxy/issues">issue</a></p>
 
         
         <br />
