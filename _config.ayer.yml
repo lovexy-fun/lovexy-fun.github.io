@@ -1,0 +1,4 @@
+icp:
+  enable: true
+  url: "https://beian.miit.gov.cn/" # 备案链接
+  text: "鲁ICP备2020039203号" # 备案信息
