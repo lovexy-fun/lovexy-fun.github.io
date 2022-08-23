@@ -1,3 +1,6 @@
 [submodule "themes/aircloud"]
 	path = themes/aircloud
 	url = git@github.com:lovexy-fun/hexo-theme-aircloud.git
+[submodule "themes/ayer"]
+	path = themes/ayer
+	url = git@github.com:lovexy-fun/hexo-theme-ayer.git
