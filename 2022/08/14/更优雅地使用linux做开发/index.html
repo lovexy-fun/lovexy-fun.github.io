@@ -1,159 +1,98 @@
 <!DOCTYPE html>
-<html lang=zh,en,default>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:description" content="lovexy&#39;s blog">
-    <meta property="og:type" content="website">
-    <meta name="description" content="lovexy&#39;s blog">
-    <meta name="keyword"  content="lovexy,lovexy-fun">
-    <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>
+
+<html lang="zh,en,default">
+  
+
+    <head>
+      <meta charset="utf-8" />
         
-        更优雅地使用linux做开发 - lovexy&#39;s blog
-        
-    </title>
+      <meta name="description" content="lovexy&#39;s blog" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>更优雅地使用linux做开发 |  lovexy&#39;s blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/img/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/aircloud.css">
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
-    
-<link rel="stylesheet" href="/css/gitment.css">
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
 
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
+      
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212792993036515" crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="lovexy's blog" type="application/atom+xml">
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="lovexy's blog" type="application/atom+xml">
 </head>
+  </html>
+</html>
+
 
 <body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> lovexy&#39;s blog </i>
-</div>
-
-<div class="index-container">
+  <div id="app">
     
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>lovexy</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archive">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>归档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/collect/">
-                    <i class="iconfont icon-shoucang1"></i>
-                    <span>收藏</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-更优雅地使用linux做开发"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-text">更优雅地使用软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%88%B0%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E7%BB%84"><span class="toc-text">添加用户到软件的权限组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Desktop%E7%89%88%E6%9C%AC%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87"><span class="toc-text">Desktop版本系统创建桌面图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%90%E4%BA%9B%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%94%A8docker%E6%9D%A5%E6%90%AD%E5%BB%BA"><span class="toc-text">某些环境使用docker来搭建</span></a></li></ol></li></ol>
-</div>
-    
-</div>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  更优雅地使用linux做开发
+</h1>
+ 
 
-
-<div class="search-field" id="search-field">
-    <div class="search-bg" id="search-bg"></div>
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/08/14/%E6%9B%B4%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8linux%E5%81%9A%E5%BC%80%E5%8F%91/" class="article-date">
+  <time datetime="2022-08-14T23:40:14.000Z" itemprop="datePublished">2022-08-14</time>
+</a>  
     </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> lovexy&#39;s blog </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
+      
+    <div class="tocbot"></div>
 
 
-<div class="post-container">
-    <div class="post-title">
-        更优雅地使用linux做开发
-    </div>
 
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2022-08-14 23:40:14</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <blockquote>
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
 <p>系统版本：Ubuntu 20.04 LTS &#x2F; WSL2 Ubuntu 20.04 LTS<br>内容不定时更新</p>
 </blockquote>
 <h2 id="更优雅地使用软件"><a href="#更优雅地使用软件" class="headerlink" title="更优雅地使用软件"></a>更优雅地使用软件</h2><h3 id="添加用户到软件的权限组"><a href="#添加用户到软件的权限组" class="headerlink" title="添加用户到软件的权限组"></a>添加用户到软件的权限组</h3><p>有些软件安装完成后会创建一个自己的用户组，有时如果不切换到root去使用软件会报错，这时把自己当前用户添加到软件的用户组就是解决权限问题。比如docker会创建一个docker用户组。</p>
@@ -163,82 +102,415 @@
 <h3 id="Desktop版本系统创建桌面图标"><a href="#Desktop版本系统创建桌面图标" class="headerlink" title="Desktop版本系统创建桌面图标"></a>Desktop版本系统创建桌面图标</h3><p>参考：<a href="https://lovexy.fun/2018/11/01/Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/">Ubuntu创建应用快捷方式</a></p>
 <h3 id="某些环境使用docker来搭建"><a href="#某些环境使用docker来搭建" class="headerlink" title="某些环境使用docker来搭建"></a>某些环境使用docker来搭建</h3><p>有时一些环境只是临时开发需要，如果你并不需要长期装在实体机上可以考虑使用docker容器</p>
 <p>一些环境的搭建请参考：<a href="https://lovexy.fun/2022/08/16/%E7%94%A8docker%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">用docker搭建开发环境</a></p>
-
-        
-        <br />
-        <div id="comment-container">
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
         </div>
-        <div id="disqus_thread"></div>
-        <div id="lv-container"></div>
-        <div class="giscus"></div>
+      </div>
+      
     </div>
-</div>
+    
 
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
         <li>
-            <a target="_blank"  href="https://github.com/lovexy-fun">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-github"></i>
-                            </span>
-            </a>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/08/16/%E7%94%A8docker%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            用docker搭建开发环境
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/08/02/maven%E6%89%93%E5%8C%85%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">maven打包配置</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2022
+        <i class="ri-heart-fill heart_icon"></i> lovexy
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2020039203号</a>
         </li>
         
-
-        
-
     </ul>
-    
-    <p>
-        <span>/</span>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
         
-        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鲁ICP备2020039203号</a></span>
-        <span>/</span>
-        
-    </p>
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img style="border-radius: 50%;" src="/img/avatar.jpg" alt="lovexy&#39;s blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
-</footer>
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archive">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
 
+    </aside>
+    <div id="mask"></div>
 
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>多浏览一下文章吧~ 这样我就有广告收益啦~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
 
-
-</body>
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
 
 <script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = true
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
 </script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
-<script src="/js/index.js"></script>
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
 
 
+    
+    
 
-
-
+  </div>
+</body>
 
 </html>
