@@ -41,8 +41,8 @@ friends: [
 adScript: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212792993036515" crossorigin="anonymous"></script>'
 
 search:
-  path: search.xml #ayer
-#  path: search.json #aircloud
+#  path: search.xml #ayer
+  path: search.json #aircloud
   field: post
 
 # 文章样式(是否首行缩进)：
@@ -89,8 +89,8 @@ per_page: 10
 pagination_dir: page
 
 # Extensions
-#theme: aircloud
-theme: ayer
+theme: aircloud
+#theme: ayer
 
 # Deployment
 deploy:
