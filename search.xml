@@ -465,6 +465,14 @@
       </tags>
   </entry>
   <entry>
+    <title>React从入门到放弃</title>
+    <url>/2022/08/29/React%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu创建应用快捷方式</title>
     <url>/2018/11/01/Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="Ubuntu创建应用快捷方式"><a href="#Ubuntu创建应用快捷方式" class="headerlink" title="Ubuntu创建应用快捷方式"></a>Ubuntu创建应用快捷方式</h1><p>新建一个.desktop文件</p>
@@ -615,6 +623,55 @@
       </tags>
   </entry>
   <entry>
+    <title>在hyper-v虚拟机中安装并配置linux</title>
+    <url>/2022/08/30/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/</url>
+    <content><![CDATA[<h2 id="WSL2真香？"><a href="#WSL2真香？" class="headerlink" title="WSL2真香？"></a>WSL2真香？</h2><p>WSL2相比于WSL1前者更类似于虚拟机，配合上<a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=zh-cn&gl=CN">Windoes Terminal</a>的漂亮界面以及通过localhost直接访问，让人直呼真香!</p>
+<p>那么WSL2真香吗？</p>
+<p>WSL2理所当然的可以运行docker，你可以把一些mysql、redis之类的服务放在docker容器里运行。</p>
+<p>当有一天你会发现在使用<code>systemctl</code>命令的时候会报这样的错误：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">System has not been booted with systemd as init system (PID 1). Can&#x27;t operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br></pre></td></tr></table></figure>
+
+<p>出现这个问题是有解决方案的，去google搜索也能找到教程，但是点进教程连接我就默默地离开了页面（完全不想看）。</p>
+<p>既然systemctl存在这样的问题，那其他地方也可能存在着问题，不如就直接使用虚拟机了。</p>
+<h2 id="Hyper-V方案"><a href="#Hyper-V方案" class="headerlink" title="Hyper-V方案"></a>Hyper-V方案</h2><h3 id="1、开启Hyper-V功能"><a href="#1、开启Hyper-V功能" class="headerlink" title="1、开启Hyper-V功能"></a>1、开启Hyper-V功能</h3><p>在这里默认为你觉得WSL2有问题才考虑使用虚拟机的，那么你的设备一定开启了Hyper-V功能。</p>
+<p>另外的，如果你没有使用过WSL2或者电脑系统为Windows10家庭版（Windows11家庭版），那么你需要参考下面的操作（具体操作方式请自行搜索，下面几步并非全部都是完成）。</p>
+<ol>
+<li>如果你的系统为家庭版，你可以搜索家庭版开启Hyper-V的教程。 </li>
+<li>如果你的系统为家庭版，你可以更换系统为专业版或者使用 <a href="https://www.landiannews.com/">蓝点网</a> 的系统版本转换工具进行转换（不论是更换系统还是进行转换，都会失去原来的正版系统）。</li>
+<li>如果你的系统是专业版，仅仅需要在<code>控制面板&gt;程序&gt;启用或关闭Windows功能</code>中打开Hyper-V功能就可以。</li>
+</ol>
+<h3 id="2、Ubuntu镜像下载"><a href="#2、Ubuntu镜像下载" class="headerlink" title="2、Ubuntu镜像下载"></a>2、Ubuntu镜像下载</h3><p><a href="https://ubuntu.com/download/server">Ubuntu Server 22.04 LTS</a></p>
+<p>写这篇博客时的，最新server lts版本是22.04，目前没有测试18.04。</p>
+<h3 id="3、创建虚拟机配置（暂时不安装操作系统）"><a href="#3、创建虚拟机配置（暂时不安装操作系统）" class="headerlink" title="3、创建虚拟机配置（暂时不安装操作系统）"></a>3、创建虚拟机配置（暂时不安装操作系统）</h3><p>经过前几步的配置后应该可以在Win菜单中搜索到<strong>Hyper-V 管理器</strong>，打开后界面如下：</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/1.png"></p>
+<p>点击右侧操作栏目的<strong>新建&gt;虚拟机</strong>后会出现配置引导</p>
+<hr>
+<p>点击下一步进行配置</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/2.png"></p>
+<hr>
+<p>在这里需要制指定一下虚拟机的名称和虚拟机的存放位置。<br>如果是长期使用并且安装较多软件的话尽量选择一个存储空间足够的位置。<br>设置完成后点击下一步继续。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/3.png"></p>
+<hr>
+<p>这里选择第二代，然后下一步。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/4.png"></p>
+<hr>
+<p>内存先使用默认的1024MB动态内存，后期可以调整内存大小。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/5.png"></p>
+<hr>
+<p>先选择<strong>Default Switch</strong>，默认的网络连接用来连接互联网，后面装完系统后需要再新增一个网卡来固定虚拟机IP用来SSH连接使用。<br>选择默认后点击下一步。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/6.png"></p>
+<hr>
+<p>暂时选择不添加虚拟硬盘，点击下一步继续。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/7.png"></p>
+<hr>
+<p>点击完成等待虚拟机配置创建完成。<br><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/8.png"></p>
+<h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><p><a href="https://www.apple.com/mac/">Buy a Mac</a></p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>明御助手</title>
     <url>/2022/06/29/%E6%98%8E%E5%BE%A1%E5%8A%A9%E6%89%8B/</url>
     <content><![CDATA[<h1 id="MingYuAssistant"><a href="#MingYuAssistant" class="headerlink" title="MingYuAssistant"></a>MingYuAssistant</h1><blockquote>
@@ -729,6 +786,23 @@
 ]]></content>
       <tags>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>端口占用问题</title>
+    <url>/2022/08/29/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="一般情况下解决方案"><a href="#一般情况下解决方案" class="headerlink" title="一般情况下解决方案"></a>一般情况下解决方案</h2><p>一般情况下可以命令查看端口被哪些进程所占用了</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i:端口号 #linux</span><br><span class="line">netstat -ano | findstr 端口号 #windows</span><br></pre></td></tr></table></figure>
+
+<p>查找到到占用端口的进程后可以选择杀死进程，或者更换服务端口号。</p>
+<h2 id="不一般情况下的解决方案"><a href="#不一般情况下的解决方案" class="headerlink" title="不一般情况下的解决方案"></a>不一般情况下的解决方案</h2><p>有时候你发现某个端口被占用了，你会理所当然的去查看那个进程占用了端口。</p>
+<p>但是通过命令搜索之后你发现找不到任何进程在占用端口，这种情况一般在Windows下比较常见，尤其是启动Jetbrains全家桶系软件。</p>
+<p>这种情况我也不知道为什么，一般通过重启系统能够解决，不过有时可能需要重启多次。</p>
+<p>经过多次的踩坑摸索到如下解决方案：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">仅Windows环境这样操作，需要管理员权限</span></span><br><span class="line">netsh winsock reset</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">执行完成会看到successful相关的输出，然后重启电脑，基本上可以解决端口占用但是没有占用进程的问题</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>踩坑</tag>
       </tags>
   </entry>
   <entry>
