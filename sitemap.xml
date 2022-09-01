@@ -5,6 +5,15 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   
   <url>
+    <loc>https://lovexy.fun/2018/11/01/Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</loc>
+    
+    <lastmod>2022-09-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lovexy.fun/2022/08/30/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/</loc>
     
     <lastmod>2022-09-01</lastmod>
@@ -197,15 +206,6 @@
     <loc>https://lovexy.fun/2019/11/22/js%E5%8E%9F%E7%94%9F%E5%AF%BC%E5%87%BAexcel%E5%92%8Ccsv/</loc>
     
     <lastmod>2019-11-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lovexy.fun/2018/11/01/Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</loc>
-    
-    <lastmod>2018-11-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
