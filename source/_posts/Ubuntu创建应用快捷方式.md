@@ -1,7 +1,7 @@
 ---
 title: Ubuntu创建应用快捷方式
 date: 2018-11-01 23:24:00
-updated: 2018-11-01 23:24:00
+updated: 2022-09-01 22:53:49
 tags:
   - linux
   - 瞎搞
@@ -22,16 +22,18 @@ vi eclipse.desktop
 Encoding=UTF-8
 Name=eclipse
 GenericName=eclipse IDE
-Comment=java ide
+Comment=ide
 Exec=/etc/eclipse/eclipse
 Icon=/etc/eclipse/icon.xpm
 Terminal=false
 Type=Application
 Categories=Application;Development;
+StartupWMClass=eclipse
+StartupNotify=true
 ```
 
 | 关键字          | 含义                   | 参数            |
-| --------------- | ---------------------- | --------------- |
+| :-------------- | :--------------------- | :-------------- |
 | [Desktop Entry] | 标识                   |                 |
 | Encoding        | 编码                   | UTF-8等编码格式 |
 | GenericName     | 描述                   | 一句描述        |
@@ -41,6 +43,8 @@ Categories=Application;Development;
 | Terminal        | 是否启动终端           | true/false      |
 | Type            | 启动器类型             |                 |
 | Categories      | 应用类型               |                 |
+| StartupWMClass  | 分组类别(用于窗口组合)   | string          |
+| StartupNotify   | 启动等待效果            | true/false     |
 
 编写完后保存退出，然后执行
 
