@@ -37,8 +37,8 @@ friends: [
     }
 ]
 
-# Ad
-adScript: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212792993036515" crossorigin="anonymous"></script>'
+# 谷歌自动广告脚本，注释此行为不开启自动广告
+#adScript: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212792993036515" crossorigin="anonymous"></script>'
 
 search:
   path: search.xml #ayer
