@@ -101,7 +101,9 @@ deploy:
 sitemap:
   path:
     - sitemap.xml
+    - sitemap.txt
   template: sitemap.xml
+  template_txt: sitemap.txt
   rel: false
   tags: true
   categories: true
