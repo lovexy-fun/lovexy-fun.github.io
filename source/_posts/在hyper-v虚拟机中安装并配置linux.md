@@ -1,10 +1,12 @@
 ---
 title: 在hyper-v虚拟机中安装并配置linux
 date: 2022-08-30 17:04:52
-updated: 2022-08-30 17:04:58
+updated: 2022-09-01 16:41:31
 tags:
 - linux
 ---
+
+> ⚠ 多图警告
 
 ## WSL2真香？
 
@@ -93,6 +95,290 @@ Failed to connect to bus: Host is down
 
 点击完成等待虚拟机配置创建完成。
 ![](img/在hyper-v虚拟机中安装并配置linux/8.png)
+
+### 4、添加硬盘
+
+点击**Hyper-V管理器**主界面上前面几步创建的虚拟机
+
+![](img/在hyper-v虚拟机中安装并配置linux/9.png)
+
+---
+
+在弹出界面上依次点击`SCSI控制器>硬盘驱动器>添加`
+
+![](img/在hyper-v虚拟机中安装并配置linux/10.png)
+
+---
+
+在点击添加后我们可以看到如下的界面，可以看到能够使用虚拟硬盘和脱机的虚拟硬盘。
+
+当我们有空闲的硬盘时可以考虑使用物理硬盘。
+
+这里先选择创建虚拟硬盘，点击**新建**按钮
+
+![](img/在hyper-v虚拟机中安装并配置linux/11.png)
+
+---
+
+接下来回进入到虚拟硬盘创建引导。
+
+这里可以看到有三种模式。
+当想要创建一个长期使用的虚拟机时建议选择固定大小并分配较大容量。
+现在做配置演示属于临时性的并且硬盘IO非常低，这里我选择动态扩展。
+
+![](img/在hyper-v虚拟机中安装并配置linux/12.png)
+
+---
+
+给硬盘一个名称并指定位置，建议放在创建的虚拟机目录下。
+![](img/在hyper-v虚拟机中安装并配置linux/13.png)
+
+---
+
+接下来是指定硬盘大小，如果是固定硬盘大小模式，这里指定之后硬盘就会被初始化为指定的大小。
+如果是选择的动态扩展，这里创建的虚拟硬盘文件小于这个最大值。
+当然可以选择复制物理硬盘或其他虚拟硬盘的内容到新的虚拟硬盘。
+
+![](img/在hyper-v虚拟机中安装并配置linux/14.png)
+
+---
+
+磁盘配置完成后会看到如下信息
+
+![](img/在hyper-v虚拟机中安装并配置linux/15.png)
+
+
+### 5、添加系统镜像
+
+再点击`SCSI控制器>DVD驱动器>添加>映像文件`选择下载好的Ubuntu22.04系统镜像。
+
+![](img/在hyper-v虚拟机中安装并配置linux/16.png)
+
+### 6、启动位置
+
+点击**固件**，调整启动顺序为如图所示：
+
+![](img/在hyper-v虚拟机中安装并配置linux/17.png)
+
+
+### 7、关闭安全启动
+
+点击**安全**，把启用安全启动去掉勾选，然后点击确定保存。
+
+到这里虚拟机的基本配置已经完成了，接下来就是启动安装系统了。
+
+![](img/在hyper-v虚拟机中安装并配置linux/18.png)
+
+### 8、安装系统
+
+在主界面上选中我们创建的虚拟机右击连接，在弹出窗口中点击启动。
+
+![](img/在hyper-v虚拟机中安装并配置linux/19.png)
+
+---
+
+等待几秒后会出现选择菜单，这里我们选择第一项安装系统。
+
+![](img/在hyper-v虚拟机中安装并配置linux/20.png)
+
+---
+
+经过等待几十秒后出出现语言选择界面，然后选择English
+
+![](img/在hyper-v虚拟机中安装并配置linux/21.png)
+
+![](img/在hyper-v虚拟机中安装并配置linux/22.png)
+
+---
+
+选择正常安装
+
+![](img/在hyper-v虚拟机中安装并配置linux/23.png)
+
+---
+
+网络配置我们默认使用DHCP，这里不要修改否则可能安装完成后无法连接互联网。
+
+这个eth0网卡就的Hyper-V的**Default Switch**，它的IP地址是系统开机自动分配的，我们无法固定这个IP，后面将通过再添加一个网卡的方式实现固定IP连接SSH。
+
+![](img/在hyper-v虚拟机中安装并配置linux/24.png)
+
+---
+
+代理设置和源设置默认就可以
+
+![](img/在hyper-v虚拟机中安装并配置linux/25.png)
+
+![](img/在hyper-v虚拟机中安装并配置linux/26.png)
+
+---
+
+硬盘分区选择，第一个方案，继续。
+
+![](img/在hyper-v虚拟机中安装并配置linux/27.png)
+
+---
+
+这是默认提供的分区方案，我们可以看到**free space**还有60G+的空间。
+
+![](img/在hyper-v虚拟机中安装并配置linux/28.png)
+
+选择中free space后回车，选择Create Logical Volume
+
+![](img/在hyper-v虚拟机中安装并配置linux/29.png)
+
+设置如下配置后选择Create继续
+
+![](img/在hyper-v虚拟机中安装并配置linux/30.png)
+
+设置完成后选择Done继续，会有一个确认提示，选择Continue。
+
+---
+
+接下来就是常见的用户信息设置了，设置完成后继续。
+
+![](img/在hyper-v虚拟机中安装并配置linux/31.png)
+
+---
+
+这里要选择上ssh服务，如图所示。
+
+![](img/在hyper-v虚拟机中安装并配置linux/32.png)
+
+---
+
+这一步是Snaps软件安装，一个都不要选，后面自己安装需要的软件。
+
+![](img/在hyper-v虚拟机中安装并配置linux/33.png)
+
+---
+
+接下来会进入安装阶段，等待出现**Reboot Now**选项。
+
+![](img/在hyper-v虚拟机中安装并配置linux/34.png)
+
+选中reboot now，进行重启，这里一定会出错，不过没有关系，直接强制关机虚拟机就可以了。
+
+![](img/在hyper-v虚拟机中安装并配置linux/35.png)
+
+![](img/在hyper-v虚拟机中安装并配置linux/36.png)
+
+![](img/在hyper-v虚拟机中安装并配置linux/37.png)
+
+---
+
+接下来我们再次启动虚拟机就可以进入系统了。
+
+### 9、配置固定IP
+
+在Hyper-V管理器主界面点击右侧的**虚拟交换机管理器**，点击`新建虚拟网络交换机>内部>创建虚拟交换机`
+
+![](img/在hyper-v虚拟机中安装并配置linux/38.png)
+
+按照如图所示的进行配置：
+
+![](img/在hyper-v虚拟机中安装并配置linux/39.png)
+
+---
+
+关闭虚拟机的系统，点击选中虚拟机进行设置。
+选中`添加硬件>网络适配器>添加`
+
+![](img/在hyper-v虚拟机中安装并配置linux/40.png)
+
+虚拟交换选中上面创建的10.10.10.254。
+
+![](img/在hyper-v虚拟机中安装并配置linux/41.png)
+
+完成后保存虚拟机配置。
+
+---
+
+在`控制面板>网络和Internet>网络连接`里可以看到上面配置的虚拟网卡。
+
+![](img/在hyper-v虚拟机中安装并配置linux/42.png)
+
+需要给这个网卡配置固定的IP地址
+
+![](img/在hyper-v虚拟机中安装并配置linux/43.png)
+
+---
+
+启动虚拟机的系统，进入系统后切换到root用户
+
+```shell
+sudo su
+```
+
+更新软件源
+
+```shell
+apt update
+```
+
+安装net-tools
+
+```shell
+apt install net-tools
+```
+
+编辑`/etc/netplan`下的唯一一个yaml文件
+
+```shell
+vi /etc/netplan/00-installer-config.yaml
+```
+
+文件默认内容为：
+
+```yaml
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eth0:
+      dhcp4: true
+  version: 2
+```
+
+这里的网卡不一定都是eht，也可能是ens
+
+需要添加一个网卡eth1，修改这个文件内容为：
+
+```yaml
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth1:
+      dhcp4: false
+      addresses: [10.10.10.1/24]
+  version: 2
+```
+
+应用配置
+
+```shell
+netplan apply
+```
+
+如果配置没有错误，在windows实体机器上`ssh ubuntu@10.10.10.1`就可以连接到虚拟机的Ubuntu了。
+
+### 10、优化虚拟机访问
+
+修改`C:\Windows\System32\drivers\etc\hosts`文件，在文件末尾添加
+
+```text
+10.10.10.1 vmlinux1
+```
+
+在命令行中`ssh ubuntu@vmlinux1`就可以连接到系统了。
+
+打开windows terminal，到设置中添加一项配置。
+这里我没有设置图标，如果需要的话可以自行设置。
+
+![](img/在hyper-v虚拟机中安装并配置linux/44.png)
+
+这样每次连接仅输入密码就可以了，如果觉得输入密码比较麻烦可以配置一下RSA密钥。
 
 ## 最终解决方案
 

@@ -9,6 +9,20 @@ tags:
 > 系统版本：Ubuntu 20.04 LTS / WSL2 Ubuntu 20.04 LTS
 > 内容不定时更新
 
+## 系统选择
+
+如果对某讯的软件没需求的话完全可以只使用linux桌面发行版本。
+
+当然也可以使用linux桌面发行版+deepin-wine。
+
+如果忍受不了deepin-wine的兼容性bug，可以选择Windows+WSL2。
+
+如果觉得WSL2不完整或有Bug，那么可以使用Hyper-V虚拟机，教程参考：[在hyper-v虚拟机中安装并配置linux](https://lovexy.fun/2022/08/30/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/)
+
+如果觉得Hyper-V性能不够，可以关闭BIOS的虚拟化，使用VMware虚拟机。
+
+如果觉得虚拟机不方便，那么可以换个Mac.
+
 ## 更优雅地使用软件
 
 ### 添加用户到软件的权限组
