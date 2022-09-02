@@ -1,7 +1,7 @@
 ---
 title: 用docker搭建开发环境
 date: 2022-08-16 21:38:23
-updated: 2022-08-24 16:56:38
+updated: 2022-09-02 16:45:50
 tags:
 - docker
 ---
@@ -103,7 +103,7 @@ mv ./redis.conf ./redis
 
 创建并启动容器
 ```shell
-docker --name redis -p 6379:6379 -v /home/XXXX/redis/data:/data -v /home/XXXX/redis/redis.conf:/etc/redis/redis.conf -d redis:latest
+docker run --name redis -p 6379:6379 -v /home/XXXX/redis/data:/data -v /home/XXXX/redis/redis.conf:/etc/redis/redis.conf -d redis:latest redis-server /etc/redis/redis.conf
 ```
 
 可以选择docker-compose启动
@@ -119,6 +119,7 @@ services:
     volumes:
       - ./redis/data:/data
       - ./redis/redis.conf:/etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf
     restart: always
 ```
 
