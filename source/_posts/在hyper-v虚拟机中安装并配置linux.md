@@ -406,6 +406,10 @@ netplan apply
 
 ![](img/在hyper-v虚拟机中安装并配置linux/48.png)
 
+需要注意系统安装到物理硬盘上后，如果BIOS的第一启动项是这个硬盘的话，是完全可以启动的。
+
+所以要设置一下BIOS让这个硬盘不会在第一启动位
+
 ## 最终解决方案
 
 [Buy a Mac](https://www.apple.com/mac/)
