@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
 <p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/25.png"></p>
 <p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/26.png"></p>
 <hr>
-<p>硬盘分区选择，第一个方案，继续。</p>
+<p>硬盘分区选择，第一个方案，继续。想自定义分区可以参考：<a href="https://lovexy.fun/2022/09/03/UbuntuServer2204%E5%88%86%E5%8C%BA/">UbuntuServer2204分区</a></p>
 <p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/27.png"></p>
 <hr>
 <p>这是默认提供的分区方案，我们可以看到<strong>free space</strong>还有60G+的空间。</p>
@@ -271,6 +271,21 @@ var _hmt = _hmt || [];
 <p>打开windows terminal，到设置中添加一项配置。<br>这里我没有设置图标，如果需要的话可以自行设置。</p>
 <p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/44.png"></p>
 <p>这样每次连接仅输入密码就可以了，如果觉得输入密码比较麻烦可以配置一下RSA密钥。</p>
+<p>如果想要像WSL一样在资源管理器里就可以浏览linux文件，可以参考：<a href="http://lovexy.fun/2022/09/04/sftp%E6%98%A0%E5%B0%84%E4%B8%BAwin%E7%A3%81%E7%9B%98/">sftp映射为win磁盘</a></p>
+<h3 id="11、挂载物理硬盘"><a href="#11、挂载物理硬盘" class="headerlink" title="11、挂载物理硬盘"></a>11、挂载物理硬盘</h3><p>要挂载物理硬盘必要条件是电脑是双硬盘的，这里要注意挂载的是硬盘不是分区。</p>
+<p>首先将要挂载的物理硬盘清空所有分区(推荐使用 <a target="_blank" rel="noopener" href="https://www.diskgenius.cn/">DiskGenius</a> 来操作)：</p>
+<p>右击磁盘选择脱机。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/45.png"></p>
+<p>得到如下状态的磁盘：</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/46.png"></p>
+<p>在虚拟机设置窗口依次点击<code>SCSI控制器&gt;硬盘驱动器&gt;物理硬盘</code></p>
+<p>只有存在脱机的物理硬盘这里才能识别到具体的硬盘</p>
+<p>完成后确定保存配置。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/47.png"></p>
+<p>需要注意的是挂载了物理磁盘后就不能再使用检查点了，需要关闭检查点后才能启动开机。</p>
+<p><img src="/img/%E5%9C%A8hyper-v%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AElinux/48.png"></p>
+<p>需要注意系统安装到物理硬盘上后，如果BIOS的第一启动项是这个硬盘的话，是完全可以启动的。</p>
+<p>所以要设置一下BIOS让这个硬盘不会在第一启动位</p>
 <h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><p><a target="_blank" rel="noopener" href="https://www.apple.com/mac/">Buy a Mac</a></p>
  
       <!-- reward -->
@@ -301,6 +316,15 @@ var _hmt = _hmt || [];
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/09/03/UbuntuServer2204%E5%88%86%E5%8C%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            UbuntuServer2204分区
+          
+        </div>
+      </a>
     
     
       <a href="/2022/08/29/React%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="article-nav-link">
