@@ -9,7 +9,7 @@ tags:
 > 系统版本：Ubuntu 20.04 LTS / WSL2 Ubuntu 20.04 LTS
 > 内容不定时更新
 
-## 系统选择
+## 一、系统选择
 
 如果对某讯的软件没需求的话完全可以只使用linux桌面发行版本。
 
@@ -23,9 +23,9 @@ tags:
 
 如果觉得虚拟机不方便，那么可以换个Mac.
 
-## 更优雅地使用软件
+## 二、更优雅地使用软件
 
-### 添加用户到软件的权限组
+### 1、添加用户到软件的权限组
 
 有些软件安装完成后会创建一个自己的用户组，有时如果不切换到root去使用软件会报错，这时把自己当前用户添加到软件的用户组就是解决权限问题。比如docker会创建一个docker用户组。
 
@@ -35,12 +35,25 @@ cat /etc/group #查看所有的用户group
 usermod -a -G OutlawManiac ZhangSan #添加用户ZhangSan到OutlawManiac用户组
 ```
 
-### Desktop版本系统创建桌面图标
+### 2、Desktop版本系统创建桌面图标
 
 参考：[Ubuntu创建应用快捷方式](https://lovexy.fun/2018/11/01/Ubuntu%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/)
 
-### 某些环境使用docker来搭建
+### 3、某些环境使用docker来搭建
 
 有时一些环境只是临时开发需要，如果你并不需要长期装在实体机上可以考虑使用docker容器
 
 一些环境的搭建请参考：[用docker搭建开发环境](https://lovexy.fun/2022/08/16/%E7%94%A8docker%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/)
+
+### 4、环境变量配置
+
+像jdk之类的软件，以root用户登录解压后放在`/opt`目录下就可以。
+
+然后修改`/etc/profile`文件增加`JAVA_HOME`环境变量，如果使用了zsh还需要在`/etc/zsh/zshenv`文件里增加环境变量。
+
+```shell
+if [ -z $JAVA_HOME ];then
+        export JAVA_HOME=/opt/openjdk/11
+        export PATH=$PATH:$JAVA_HOME/bin
+fi
+```
