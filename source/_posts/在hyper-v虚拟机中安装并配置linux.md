@@ -1,7 +1,7 @@
 ---
 title: 在hyper-v虚拟机中安装并配置linux
 date: 2022-08-30 17:04:52
-updated: 2022-09-01 16:41:31
+updated: 2022-09-25 21:41:18
 tags:
 - linux
 ---
@@ -9,6 +9,8 @@ tags:
 > ⚠ 多图警告
 
 ## WSL2真香？
+
+> 是的没错WSL2真香[Systemd support is now available in WSL!](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/)
 
 WSL2相比于WSL1前者更类似于虚拟机，配合上[Windoes Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=zh-cn&gl=CN)的漂亮界面以及通过localhost直接访问，让人直呼真香!
 
