@@ -149,7 +149,7 @@ docker run -p 2121:21 -p 2020:20 -p 21100-21110:21100-21110 \
 -d fauria/vsftpd
 ```
 
-<X.X.X.X>要更换成主机ip，使用`ifconfig`查看，例如PASV_ADDRESS=10.10.10.10
+`<X.X.X.X>`要更换成主机ip，使用`ifconfig`查看，例如PASV_ADDRESS=10.10.10.10
 
 `/home/XXXX/vsftpd`中的XXXX更换为当前用户名，或者自行制定目录。
 
@@ -157,7 +157,7 @@ docker run -p 2121:21 -p 2020:20 -p 21100-21110:21100-21110 \
 
 使用docker-compose方式：
 
-<X.X.X.X>替换成主机ip
+`<X.X.X.X>`替换成主机ip
 
 ```yaml
 version: '3'
