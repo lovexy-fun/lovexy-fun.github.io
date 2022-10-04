@@ -1,7 +1,7 @@
 ---
 title: 用docker搭建开发环境
 date: 2022-08-16 21:38:23
-updated: 2022-09-02 16:45:50
+updated: 2022-10-04 23:58:05
 tags:
 - docker
 ---
@@ -9,6 +9,8 @@ tags:
 > 说明：系统Ubuntu20.04或WSL2 Ubuntu20.04，docker版本20+
 
 ## docker-compose安装
+
+对于简单开发环境来说使用docker-compose比直接使用docker命令略微方便一点，当然集群部署还是得k8s。
 
 下载地址：https://github.com/docker/compose/releases
 
@@ -19,7 +21,7 @@ chmod 755 docker-compose
 mv docker-compose /usr/local/bin
 ```
 
-## mysql
+## 1、mysql
 
 pull需要的版本的mysql的docker镜像
 ```shell
@@ -84,7 +86,7 @@ docker-compose up -d
 ```
 
 
-## redis
+## 2、redis
 
 pull最新版本的redis的镜像
 ```shell
@@ -126,4 +128,53 @@ services:
 在yml文件同目录下创建并启动容器
 ```shell
 docker-compose up -d
+```
+
+## 3、FTP
+
+拉取镜像
+
+```shell
+docker pull fauria/vsftpd
+```
+
+创建并启动容器
+
+```shell
+docker run -p 2121:21 -p 2020:20 -p 21100-21110:21100-21110 \
+-e FTP_USER=test -e FTP_PASS=123456 -e PASV_ADDRESS=<X.X.X.X> -e PASV_MIN_PORT=21100 -e PASV_MAX_PORT=21110 \
+-v /home/XXXX/vsftpd:/home/vsftpd \
+--name vsftpd \
+--restart=always \
+-d fauria/vsftpd
+```
+
+<X.X.X.X>要更换成主机ip，使用`ifconfig`查看，例如PASV_ADDRESS=10.10.10.10
+
+`/home/XXXX/vsftpd`中的XXXX更换为当前用户名，或者自行制定目录。
+
+这里使用主机的2121是为了防止与主机的21端口冲突，如果已经明确21端口和20端口没有被占用，那么这里可以使用21和20端口。
+
+使用docker-compose方式：
+
+<X.X.X.X>替换成主机ip
+
+```yaml
+version: '3'
+services:
+  vsftpd:
+    image: fauria/vsftpd
+    ports:
+      - 2121:21
+      - 2020:20
+      - 21100-21110:21100-21110
+    volumes:
+      - ./vsftpd:/home/vsftpd
+    environment:
+      - "FTP_USER=test"
+      - "FTP_PASS=123456"
+      - "PASV_ADDRESS=<X.X.X.X>"
+      - "PASV_MIN_PORT=21100"
+      - "PASV_MAX_PORT=21110"
+    restart: always
 ```
