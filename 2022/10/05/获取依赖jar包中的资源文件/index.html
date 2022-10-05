@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>sftp映射为win磁盘 |  lovexy&#39;s blog</title>
+      <title>获取依赖jar包中的资源文件 |  lovexy&#39;s blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/img/favicon.ico" />
@@ -68,7 +68,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-sftp映射为win磁盘"
+  id="post-获取依赖jar包中的资源文件"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -79,7 +79,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  sftp映射为win磁盘
+  获取依赖jar包中的资源文件
 </h1>
  
 
@@ -87,37 +87,36 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2022/09/04/sftp%E6%98%A0%E5%B0%84%E4%B8%BAwin%E7%A3%81%E7%9B%98/" class="article-date">
-  创建于: <time datetime="2022-09-04T01:18:03.000Z" itemprop="datePublished">2022-09-04</time>
+      <a href="/2022/10/05/%E8%8E%B7%E5%8F%96%E4%BE%9D%E8%B5%96jar%E5%8C%85%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="article-date">
+  创建于: <time datetime="2022-10-05T18:24:25.000Z" itemprop="datePublished">2022-10-05</time>
   &emsp;
   
-    更新于: <time datetime="2022-09-04T01:18:09.000Z" itemprop="datePublished">2022-09-04</time>
+    更新于: <time datetime="2022-10-05T18:24:30.000Z" itemprop="datePublished">2022-10-05</time>
   
 </a>  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>在使用WSL的时候，巨硬给我们做了一个可以直接在Windows资源里浏览WSL文件的功能，当然这个功能只能是针对WSL的。</p>
-<p>后来我从WSL切换到了Hyper-V虚拟机，并且也找到了一些开源工具实现了类似的功能。</p>
-<h2 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h2><p>首先要下载两个开源工具：<a target="_blank" rel="noopener" href="https://github.com/winfsp/sshfs-win/releases">sshfs-win</a> 和 <a target="_blank" rel="noopener" href="https://github.com/winfsp/winfsp/releases">winfsp</a></p>
-<p>选择最新的正式版本（不带Bete的版本），下载msi后缀的，安装比较方便。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用方法建议直接看官方文档（需要英文基础，不推荐机翻）</p>
-<p>两个软件都安装好后</p>
-<p>在资源管理器里右击此电脑（或者是我的电脑）可以看到<strong>映射网络驱动器</strong>，点击这一项。</p>
-<p><img src="/../img/sftp%E6%98%A0%E5%B0%84%E4%B8%BAwin%E7%A3%81%E7%9B%98/1.png"></p>
-<p>选择要挂载到的盘符，填入挂载的路径在官方文档里有明确的格式说明：<a target="_blank" rel="noopener" href="https://github.com/winfsp/sshfs-win#unc-syntax">sshfs-win#unc-syntax</a></p>
-<p>把登录时重新连接选上，下次登录Windows就会自动连接。</p>
-<p><img src="/../img/sftp%E6%98%A0%E5%B0%84%E4%B8%BAwin%E7%A3%81%E7%9B%98/2.png"></p>
-<p>点击完成后第一次连接需要输入密码，勾选记住凭据后再次连接就不需要密码了。</p>
-<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><p>ssffs.k的连接方式我尝试了多次，并且在仓库issue里找了别人提的问题，按照作者给出的解决方案依旧没有解决。</p>
- 
+  <p>最近在公司的项目中所有业务逻辑都写在单独的一个项目中输出为Jar包在框架项目中引用就可以了。</p>
+<p>在编写业务逻辑的过程中，需要使用freemarker生成固定格式的字符串，那么就需要将模板存放在<code>resources</code>下，<br>这里就会产生一个疑问，框架项目（war部署）怎么样获取到依赖Jar包中的资源文件。</p>
+<p>首先创建一个maven项目<strong>jar-resource</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>fun.lovexy<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jar-resource<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在resources文件夹中添加tpl目录并创建一个任意内容的文本文件。</p>
+<p>创建一个maven项目<strong>web-war</strong>，并引入<strong>jar-resource</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>fun.lovexy<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>web-war<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.11.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>fun.lovexy<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jar-resource<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>编写一个资源文件获取的测试接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getFile</span><span class="params">(<span class="meta">@RequestParam(&quot;r&quot;)</span> String r, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">ClassLoader</span> <span class="variable">classLoader</span> <span class="operator">=</span> ResourceController.class.getClassLoader();</span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> classLoader.getResourceAsStream(r);</span><br><span class="line">    response.setHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;text/plain&quot;</span>);</span><br><span class="line">    <span class="type">OutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> response.getOutputStream();</span><br><span class="line">    IOUtils.copy(inputStream, outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main方法启动或者Tomcat启动，接着访问我们的测试地址<code>http://localhost:9090/web_war/?r=tpl/a.xml</code></p>
+<p>得到我们预先在资源文里的内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>a<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -139,7 +138,7 @@ var _hmt = _hmt || [];
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9E%8E%E6%90%9E/" rel="tag">瞎搞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
 
     </footer>
   </div>
@@ -147,19 +146,10 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
+    
       <a href="/2022/09/25/%E5%85%B3%E4%BA%8EaddBatch%E9%81%87%E5%88%B0%E5%BC%82%E5%B8%B8/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            关于addBatch遇到异常
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2022/09/03/UbuntuServer2204%E5%88%86%E5%8C%BA/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">UbuntuServer2204分区</div>
+        <div class="article-nav-title">关于addBatch遇到异常</div>
       </a>
     
   </nav>

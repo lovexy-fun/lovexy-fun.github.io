@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
   创建于: <time datetime="2022-08-16T21:38:23.000Z" itemprop="datePublished">2022-08-16</time>
   &emsp;
   
-    更新于: <time datetime="2022-09-02T16:45:50.000Z" itemprop="datePublished">2022-09-02</time>
+    更新于: <time datetime="2022-10-04T23:58:05.000Z" itemprop="datePublished">2022-10-04</time>
   
 </a>  
     </div>
@@ -107,11 +107,12 @@ var _hmt = _hmt || [];
   <blockquote>
 <p>说明：系统Ubuntu20.04或WSL2 Ubuntu20.04，docker版本20+</p>
 </blockquote>
-<h2 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h2><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></p>
+<h2 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h2><p>对于简单开发环境来说使用docker-compose比直接使用docker命令略微方便一点，当然集群部署还是得k8s。</p>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></p>
 <p>下载后重命名为docker-compose，然后修改权限为755并移动到<code>/usr/local/bin</code>目录下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 docker-compose</span><br><span class="line">mv docker-compose /usr/local/bin</span><br></pre></td></tr></table></figure>
 
-<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><p>pull需要的版本的mysql的docker镜像</p>
+<h2 id="1、mysql"><a href="#1、mysql" class="headerlink" title="1、mysql"></a>1、mysql</h2><p>pull需要的版本的mysql的docker镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
 
 <p>先run创建并启动容器</p>
@@ -140,7 +141,7 @@ var _hmt = _hmt || [];
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>pull最新版本的redis的镜像</p>
+<h2 id="2、redis"><a href="#2、redis" class="headerlink" title="2、redis"></a>2、redis</h2><p>pull最新版本的redis的镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis:latest</span><br></pre></td></tr></table></figure>
 
 <p>下载最新版本的redis：<a target="_blank" rel="noopener" href="https://redis.io/download/">https://redis.io/download/</a></p>
@@ -157,7 +158,19 @@ var _hmt = _hmt || [];
 
 <p>在yml文件同目录下创建并启动容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
- 
+
+<h2 id="3、FTP"><a href="#3、FTP" class="headerlink" title="3、FTP"></a>3、FTP</h2><p>拉取镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fauria/vsftpd</span><br></pre></td></tr></table></figure>
+
+<p>创建并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 2121:21 -p 2020:20 -p 21100-21110:21100-21110 \</span><br><span class="line">-e FTP_USER=test -e FTP_PASS=123456 -e PASV_ADDRESS=&lt;X.X.X.X&gt; -e PASV_MIN_PORT=21100 -e PASV_MAX_PORT=21110 \</span><br><span class="line">-v /home/XXXX/vsftpd:/home/vsftpd \</span><br><span class="line">--name vsftpd \</span><br><span class="line">--restart=always \</span><br><span class="line">-d fauria/vsftpd</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;X.X.X.X&gt;</code>要更换成主机ip，使用<code>ifconfig</code>查看，例如PASV_ADDRESS&#x3D;10.10.10.10</p>
+<p><code>/home/XXXX/vsftpd</code>中的XXXX更换为当前用户名，或者自行制定目录。</p>
+<p>这里使用主机的2121是为了防止与主机的21端口冲突，如果已经明确21端口和20端口没有被占用，那么这里可以使用21和20端口。</p>
+<p>使用docker-compose方式：</p>
+<p><code>&lt;X.X.X.X&gt;</code>替换成主机ip</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">vsftpd:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">fauria/vsftpd</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2121</span><span class="string">:21</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2020</span><span class="string">:20</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">21100</span><span class="number">-21110</span><span class="string">:21100-21110</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./vsftpd:/home/vsftpd</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;FTP_USER=test&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;FTP_PASS=123456&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;PASV_ADDRESS=&lt;X.X.X.X&gt;&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;PASV_MIN_PORT=21100&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;PASV_MAX_PORT=21110&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
