@@ -2,18 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lovexy.fun/2022/10/05/%E8%8E%B7%E5%8F%96%E4%BE%9D%E8%B5%96jar%E5%8C%85%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2022-10-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lovexy.fun/tags/index.html</loc>
     
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +13,7 @@
   <url>
     <loc>https://lovexy.fun/google3c3b7b7d36c2b2d6.html</loc>
     
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,7 +22,7 @@
   <url>
     <loc>https://lovexy.fun/about/index.html</loc>
     
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +31,7 @@
   <url>
     <loc>https://lovexy.fun/collect/index.html</loc>
     
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -48,6 +39,15 @@
   
   <url>
     <loc>https://lovexy.fun/friends/index.html</loc>
+    
+    <lastmod>2022-12-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lovexy.fun/2022/10/05/%E8%8E%B7%E5%8F%96%E4%BE%9D%E8%B5%96jar%E5%8C%85%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2022-10-05</lastmod>
     
@@ -247,7 +247,7 @@
 
   <url>
     <loc>https://lovexy.fun/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -255,98 +255,98 @@
   
   <url>
     <loc>https://lovexy.fun/tags/%E7%9E%8E%E6%90%9E/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/git/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/MongoDB/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/react/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/linux/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/%E8%B8%A9%E5%9D%91/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/JavaScript/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/maven/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/jdbc/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/docker/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/Java/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lovexy.fun/tags/%E8%A1%A8%E6%83%85%E5%8C%85/</loc>
-    <lastmod>2022-10-05</lastmod>
+    <lastmod>2022-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
